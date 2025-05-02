@@ -22,9 +22,11 @@ decorator==5.2.1
 defusedxml==0.7.1
 executing==2.2.0
 fastjsonschema==2.21.1
+filelock==3.18.0
 flatbuffers==25.2.10
 fonttools==4.57.0
 fqdn==1.5.1
+fsspec==2025.3.2
 gast==0.6.0
 google-pasta==0.2.0
 grpcio==1.71.0
@@ -66,11 +68,13 @@ matplotlib-inline==0.1.7
 mdurl==0.1.2
 mistune==3.1.3
 ml_dtypes==0.5.1
+mpmath==1.3.0
 namex==0.0.8
 nbclient==0.10.2
 nbconvert==7.16.6
 nbformat==5.10.4
 nest-asyncio==1.6.0
+networkx==3.4.2
 notebook_shim==0.2.4
 numpy==2.1.3
 opt_einsum==3.4.0
@@ -112,6 +116,7 @@ six==1.17.0
 sniffio==1.3.1
 soupsieve==2.6
 stack-data==0.6.3
+sympy==1.14.0
 tensorboard==2.19.0
 tensorboard-data-server==0.7.2
 tensorflow==2.19.0
@@ -120,6 +125,9 @@ termcolor==3.0.1
 terminado==0.18.1
 threadpoolctl==3.6.0
 tinycss2==1.4.0
+torch==2.7.0
+torchaudio==2.7.0
+torchvision==0.22.0
 tornado==6.4.2
 tqdm==4.67.1
 traitlets==5.14.3
