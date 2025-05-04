@@ -69,6 +69,7 @@ mdurl==0.1.2
 mistune==3.1.3
 ml_dtypes==0.5.1
 mpmath==1.3.0
+munch==4.0.0
 namex==0.0.8
 nbclient==0.10.2
 nbconvert==7.16.6
@@ -87,6 +88,7 @@ parso==0.8.4
 pexpect==4.9.0
 pillow==11.2.1
 platformdirs==4.3.7
+pretrainedmodels==0.7.4
 prometheus_client==0.21.1
 prompt_toolkit==3.0.50
 protobuf==5.29.4
