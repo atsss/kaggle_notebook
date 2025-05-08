@@ -20,7 +20,7 @@ def main():
 
     images = df.patientId.values.tolist()
     images = [
-        os.path.join(data_path, "train_png", i+"png") for i in images
+        os.path.join(data_path, "train_png", i+".png") for i in images
     ]
 
     targets = df.Target.values
