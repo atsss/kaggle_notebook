@@ -41,7 +41,7 @@ def main():
     )
 
     # TODO: k-fold交差検証の代わりにホールドアウト検証を使うのはなぜ？
-    train_images, valid_images, train_targets, valid_targets = train_test_split(
+    train_images, valid_images, train_targets, original_valid_targets = train_test_split(
         images, targets, stratify=targets, random_state=42
     )
 
@@ -58,7 +58,7 @@ def main():
 
     valid_dataset = dataset.ClassificationDataset(
         image_paths=valid_images,
-        targets=valid_targets,
+        targets=original_valid_targets,
         resize=(227, 227),
         augmentations=aug
     )
