@@ -34,7 +34,7 @@ def evaluate(data_loader, model, device):
             targets = targets.to(device, dtype=torch.float)
 
             output = model(inputs)
-            output = torch.sigmoid(output) # Convert logit to probability via sigmoid
+            # output = torch.sigmoid(output) # Convert logit to probability via sigmoid
 
             targets = targets.detach().cpu().numpy().tolist()
             output = output.detach().cpu().numpy().tolist()

@@ -67,11 +67,19 @@ def main():
         valid_dataset, batch_size=16, shuffle=True, num_workers=4
     )
 
+    # for batch in valid_loader:
+    #     sample_targets = batch["targets"]
+    #     print("Sample targets from valid_loader:", sample_targets)
+    #     print("Data type of sample targets:", sample_targets.dtype)
+    #     break
+
     optimizer = torch.optim.Adam(model.parameters(), lr=5e-4)
 
     for epoch in range(epochs):
         engine.train(train_loader, model, optimizer, device=device)
-        predictions, valid_targets = engine.evaluate(valid_loader, model, device=device)
+        valid_targets, predictions = engine.evaluate(valid_loader, model, device=device)
+        print("First few elements of valid_targets:", valid_targets[:10])
+        print("First few elements of predictions:", predictions[:10])
         roc_auc= metrics.roc_auc_score(valid_targets, predictions)
         print(
             f"Epoch={epoch}, Valid ROC AUC={roc_auc}"
