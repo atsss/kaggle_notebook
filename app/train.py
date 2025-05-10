@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import albumentations
 import torch
+from torch.optim.lr_scheduler import StepLR
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 
@@ -74,16 +75,20 @@ def main():
     #     break
 
     optimizer = torch.optim.Adam(model.parameters(), lr=5e-4)
+    # 学習率スケジューラーの初期化
+    scheduler = StepLR(optimizer, step_size=3, gamma=0.5)
 
     for epoch in range(epochs):
         engine.train(train_loader, model, optimizer, device=device)
         valid_targets, predictions = engine.evaluate(valid_loader, model, device=device)
-        print("First few elements of valid_targets:", valid_targets[:10])
-        print("First few elements of predictions:", predictions[:10])
+        # print("First few elements of valid_targets:", valid_targets[:10])
+        # print("First few elements of predictions:", predictions[:10])
         roc_auc= metrics.roc_auc_score(valid_targets, predictions)
         print(
-            f"Epoch={epoch}, Valid ROC AUC={roc_auc}"
+            f"Epoch={epoch}, Valid ROC AUC={roc_auc}, Learning Rate={optimizer.param_groups[0]['lr']}"
         )
+        # エポック終了後に学習率をステップ
+        scheduler.step()
 
 
 if __name__ == '__main__':
