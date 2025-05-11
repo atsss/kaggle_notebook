@@ -13,7 +13,7 @@ from model import get_model
 
 
 def main():
-    data_path = '../../datasets/rsna-pneumonia-detection-challenge/'
+    data_path = '../../../datasets/rsna-pneumonia-detection-challenge/'
     device = "mps"
     epochs = 10
 
