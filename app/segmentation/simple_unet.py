@@ -4,10 +4,10 @@ import torch.nn.functional as F
 
 
 def double_conv(in_channels, out_channels):
-    conv = nn.Seauential(
-        nn.Conv2d(in_channel, out_channel6, kernel_size=3),
+    conv = nn.Sequential(
+        nn.Conv2d(in_channels, out_channels, kernel_size=3),
         nn.ReLU(inplace=True),
-        nn.Conv2d(in_channel, out_channel6, kernel_size=3),
+        nn.Conv2d(out_channels, out_channels, kernel_size=3),
         nn.ReLU(inplace=True)
     )
     return conv
@@ -22,7 +22,7 @@ def crop_tensor(tensor, target_tensor):
 
 
 class UNet(nn.Module):
-    def __init__(self):
+    def __init__(self, n_channels, n_classes):
         super(UNet, self).__init__()
 
         # 最大プーリング層は1つのみ定義
@@ -108,4 +108,4 @@ class UNet(nn.Module):
 if __name__ == "__main__":
     image = torch.randn((1, 1, 572, 572))
     model = UNet(n_channels=1, n_classes=2)
-    print(model(image).shape)
+    print(model(image))
