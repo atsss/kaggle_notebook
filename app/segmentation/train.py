@@ -15,9 +15,11 @@ from sklearn import model_selection
 # from tqdm import tqdm
 from torch.optim import lr_scheduler
 
+from dataset import SIIMDataset
+
 
 # 学習用の CSV ファイルの読み込み
-TRAINING_CSV = "../input/train_pneumothorax.csv"
+TRAINING_CSV = "../../../datasets/rsna-pneumonia-detection-challenge/train.csv"
 
 # 学習用と評価用のバッチサイズ
 TRAINING_BATCH_SIZE = 16
