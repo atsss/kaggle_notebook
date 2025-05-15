@@ -18,6 +18,8 @@ from albumentations import (
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
+TRAIN_PATH = "../../../datasets/rsna-pneumonia-detection-challenge/train_png/"
+
 
 class SIIMDataset(torch.utils.data.Dataset):
     def __init__(
