@@ -131,8 +131,8 @@ if __name__ == "__main__":
     )
 
     # 学習用と検証用の画像 ID
-    training_images = df_train.image_id.values
-    validation_images = df_valid.image_id.values
+    training_images = df_train.patientId.values
+    validation_images = df_valid.patientId.values
 
     # エンコーダ構造を指定して U-Net モデルを Segmentation Models Pytorch から取得
     model = smp.Unet(
