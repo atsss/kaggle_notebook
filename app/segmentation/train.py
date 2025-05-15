@@ -12,7 +12,7 @@ import torch.optim as optim
 # from torch.mps import amp
 from collections import OrderedDict
 from sklearn import model_selection
-# from tqdm import tqdm
+from tqdm import tqdm
 from torch.optim import lr_scheduler
 
 from dataset import SIIMDataset
