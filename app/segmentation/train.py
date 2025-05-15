@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 # from apex import amp
-from torch.cuda import amp
+# from torch.mps import amp
 from collections import OrderedDict
 from sklearn import model_selection
 # from tqdm import tqdm
@@ -77,8 +77,9 @@ def train(dataset, data_loader, model, criterion, optimizer):
 
         # 混合精度学習における損失スケーリング
         # 混合精度学習を使わない場合は、この2行を削除して loss.backward() を利用
-        with amp.scale_loss(loss, optimizer) as scaled_loss:
-            scaled_loss.backward()
+        # with amp.scale_loss(loss, optimizer) as scaled_loss:
+        #     scaled_loss.backward()
+        loss.backword()
 
         # パラメータ更新
         optimizer.step()
@@ -194,7 +195,7 @@ if __name__ == "__main__":
     scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, patience=5, mode="min")
 
     # 混合精度学習の準備
-    model, optimizer = amp.initialize(model, optimizer, opt_level="O1", verbosity=0)
+    # model, optimizer = amp.initialize(model, optimizer, opt_level="O1", verbosity=0)
 
     # 学習ループ
     for epoch in range(EPOCHS):
