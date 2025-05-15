@@ -36,7 +36,7 @@ ENCODER = "resnet18"
 ENCODER_WEIGHTS = "imagenet"
 
 # GPU で学習
-DEVICE = "cuda"
+DEVICE = "mps"
 
 def train(dataset, data_loader, model, criterion, optimizer):
     """
