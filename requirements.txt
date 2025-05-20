@@ -1,6 +1,6 @@
 absl-py==2.2.2
 albucore==0.0.24
-albumentations==2.0.6
+albumentations==2.0.7
 annotated-types==0.7.0
 anyio==4.9.0
 appnope==0.1.4
