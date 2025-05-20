@@ -72,7 +72,7 @@ class SIIMDataset(torch.utils.data.Dataset):
             # files = glob.glob(os.path.join(TRAIN_PATH, imgid, "*.png"))
             self.data[index] = {
                 "img_path": os.path.join(TRAIN_PATH, imgid + ".png"),
-                "mask_path": os.path.join(TRAIN_PATH, imgid + "_mask.png"),
+                "mask_path": os.path.join(TRAIN_PATH, imgid + "_bbox.png"),
             }
 
     def __len__(self):
