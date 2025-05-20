@@ -87,11 +87,12 @@ def train(dataset, data_loader, model, criterion, optimizer):
     # tqdm の終了
     tk0.close()
 
-def evaluate(dataset, data_loader, model):
+def evaluate(dataset, data_loader, criterion, model):
     """
     1 エポック評価する関数
     :param dataset: データセットのクラス (SIIMDataset)
     :param data_loader: データローダ
+    :param criterion: 損失関数
     :param model: モデル
     """
     # モデルを評価モードに
@@ -207,6 +208,7 @@ if __name__ == "__main__":
         val_log = evaluate(
             valid_dataset,
             valid_loader,
+            criterion,
             model
         )
         # スケジューラの更新
