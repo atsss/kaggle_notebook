@@ -93,8 +93,10 @@ class SIIMDataset(torch.utils.data.Dataset):
 
         # マスク画像の読み込み
         mask = Image.open(mask_path)
+        # mask = mask.convert("RGB")
 
         # float32 型の二値行列に変換
+        mask = np.array(mask) # NumPy 配列に変換
         mask = (mask >= 1).astype("float32")
 
         # 学習用データセットに対してはデータ拡張を適用

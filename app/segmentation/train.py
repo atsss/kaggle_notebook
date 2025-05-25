@@ -126,6 +126,7 @@ def evaluate(dataset, data_loader, criterion, model):
 if __name__ == "__main__":
     # 学習用の CSV ファイルの読み込み
     df = pd.read_csv(TRAINING_CSV)
+    df = df[df["Target"] == 1].drop_duplicates(subset=["patientId"])
 
     # データセットを学習用と検証用に分割
     df_train, df_valid = model_selection.train_test_split(
